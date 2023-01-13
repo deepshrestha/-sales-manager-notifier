@@ -1,5 +1,7 @@
-const NOTIFICATIONS = "notifications"
+const NOTIFICATIONS = "notifications";
+const MOBILE_TOPUP = "mobile_topup"
 
 module.exports = {
-    NOTIFICATIONS
+    NOTIFICATIONS,
+    MOBILE_TOPUP
 };
