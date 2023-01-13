@@ -46,8 +46,9 @@ wss.onerror = function () {
 const port = 3001;
 
 app.post("/push-notifications", (req, res) => {
+    console.log(socket)
     if(socket) {
-        webSocketServer.clients.forEach((client) => {
+        wss.clients.forEach((client) => {
             if(req.body.notifiableUserIds.includes(+client.id)) {
                 client.send(JSON.stringify({
                     "type": webSocketResponseType.NOTIFICATIONS,
@@ -58,6 +59,7 @@ app.post("/push-notifications", (req, res) => {
         });
         res.status(200).send('Notification sent');
     }
+    
 });
 
 server.listen(port, () => {
